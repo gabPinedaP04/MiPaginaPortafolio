@@ -1,0 +1,745 @@
+
+.box form  input[type = 'text']{
+    margin-top: 10px;
+}
+
+body{
+    background-color: var(--color-pallete5);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+Fondo de pantalla colores gradient --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+*/
+
+
+.text-container {
+    z-index: 100;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    font-size: 96px;
+    color: white;
+    opacity: 0.8;
+    user-select: none;
+    text-shadow: 1px 1px rgba(0,0,0,0.1);
+  }
+  
+  :root {
+    --color-bg1: rgb(0, 61, 56);
+    --color-bg2: rgb(0, 3, 10);
+    --color1: 0, 113, 255;
+    --color2: 0, 74, 255;
+    --color3: 0, 120, 255;
+    --color4: 0, 70, 50;
+    --color5: 0, 80, 50;
+    --color-interactive: 140, 100, 255;
+    --circle-size: 80%;
+    --blending: hard-light;
+
+    --color-pallete1: #ffffff;
+    --color-pallete2: #5e9188;
+    --color-pallete3: #3e5954;
+    --color-pallete4:#253342;
+    --color-pallete5:#232226;
+
+    --color-palletePhoto1:#F5F5F5 ;
+    --color-palletePhoto2:#FF6F61 ;
+    --color-palletePhoto3:#333333 ;
+    --color-palletePhoto4:#4CAF50 ;
+    --color-palletePhoto5: #2196F3 ; 
+  }
+
+
+
+  
+  @keyframes moveInCircle {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(180deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes moveVertical {
+    0% {
+      transform: translateY(-50%);
+    }
+    50% {
+      transform: translateY(50%);
+    }
+    100% {
+      transform: translateY(-50%);
+    }
+  }
+  
+  @keyframes moveHorizontal {
+    0% {
+      transform: translateX(-50%) translateY(-10%);
+    }
+    50% {
+      transform: translateX(50%) translateY(10%);
+    }
+    100% {
+      transform: translateX(-50%) translateY(-10%);
+    }
+  }
+  
+  
+  .gradient-bg {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(40deg, var(--color-bg1), var(--color-bg2));
+    top: 0;
+    left: 0;
+  
+    svg {
+      display: none;
+    }
+  
+  
+    .gradients-container {
+      filter: url(#goo) blur(40px) ;
+      width: 100%;
+      height: 100%;
+    }
+  
+    .g1 {
+      position: absolute;
+      background: radial-gradient(circle at center, rgba(var(--color1), 0.8) 0, rgba(var(--color1), 0) 50%) no-repeat;
+      mix-blend-mode: var(--blending);
+  
+      width: var(--circle-size);
+      height: var(--circle-size);
+      top: calc(50% - var(--circle-size) / 2);
+      left: calc(50% - var(--circle-size) / 2);
+  
+      transform-origin: center center;
+      animation: moveVertical 30s ease infinite;
+  
+      opacity: 1;
+    }
+  
+    .g2 {
+      position: absolute;
+      background: radial-gradient(circle at center, rgba(var(--color2), 0.8) 0, rgba(var(--color2), 0) 50%) no-repeat;
+      mix-blend-mode: var(--blending);
+  
+      width: var(--circle-size);
+      height: var(--circle-size);
+      top: calc(50% - var(--circle-size) / 2);
+      left: calc(50% - var(--circle-size) / 2);
+  
+      transform-origin: calc(50% - 400px);
+      animation: moveInCircle 20s reverse infinite;
+  
+      opacity: 1;
+    }
+  
+    .g3 {
+      position: absolute;
+      background: radial-gradient(circle at center, rgba(var(--color3), 0.8) 0, rgba(var(--color3), 0) 50%) no-repeat;
+      mix-blend-mode: var(--blending);
+  
+      width: var(--circle-size);
+      height: var(--circle-size);
+      top: calc(50% - var(--circle-size) / 2 + 200px);
+      left: calc(50% - var(--circle-size) / 2 - 500px);
+  
+      transform-origin: calc(50% + 400px);
+      animation: moveInCircle 40s linear infinite;
+  
+      opacity: 1;
+    }
+  
+    .g4 {
+      position: absolute;
+      background: radial-gradient(circle at center, rgba(var(--color4), 0.8) 0, rgba(var(--color4), 0) 50%) no-repeat;
+      mix-blend-mode: var(--blending);
+  
+      width: var(--circle-size);
+      height: var(--circle-size);
+      top: calc(50% - var(--circle-size) / 2);
+      left: calc(50% - var(--circle-size) / 2);
+  
+      transform-origin: calc(50% - 200px);
+      animation: moveHorizontal 40s ease infinite;
+  
+      opacity: 0.7;
+    }
+  
+    .g5 {
+      position: absolute;
+      background: radial-gradient(circle at center, rgba(var(--color5), 0.8) 0, rgba(var(--color5), 0) 50%) no-repeat;
+      mix-blend-mode: var(--blending);
+  
+      width: calc(var(--circle-size) * 2);
+      height: calc(var(--circle-size) * 2);
+      top: calc(50% - var(--circle-size));
+      left: calc(50% - var(--circle-size));
+  
+      transform-origin: calc(50% - 800px) calc(50% + 200px);
+      animation: moveInCircle 20s ease infinite;
+  
+      opacity: 1;
+    }
+  
+    .interactive {
+      position: absolute;
+      background: radial-gradient(circle at center, rgba(var(--color-interactive), 0.8) 0, rgba(var(--color-interactive), 0) 50%) no-repeat;
+      mix-blend-mode: var(--blending);
+  
+      width: 100%;
+      height: 100%;
+      top: -50%;
+      left: -50%;
+  
+      opacity: 0.7;
+    }
+  }
+
+/*
+NavBar  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+#inicioNav{
+  height: 100vh;
+}
+
+
+nav{
+  background-color: var(--color-pallete4);
+  display: flex;
+  font-size: medium;
+  font-family: "Teko", sans-serif;
+}
+nav ul{
+  text-transform: uppercase;
+  text-align: center;
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+nav ul li{
+  padding-left: 2%;
+  padding-right: 2%;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+nav ul li :hover{
+  background-color: var(--color-pallete2);
+  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  padding: 20%;
+}
+
+
+nav ul li a{
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+}
+
+nav ul li a :hover{
+  color: rgb(1, 56, 60);
+}
+
+
+.contenedor{
+  width: 100%;
+  display: flex;
+  height: 10vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenidonavBar{
+    width: 70%;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+  .nombreNavBar{
+    background-color: var(--color-pallete4);
+    width: 30%;
+  }
+
+  #image_of_the_day {
+    max-width: 100%;
+    height: 90%;
+    padding: 0;
+  }
+
+
+  @media screen and (max-width:1000px){
+    .nombreNavBar{
+      display: none;
+    }
+    .contenidonavBar{
+      width: 100%;
+      justify-content: center;
+      padding-left: 0%;
+      padding-right: 0%;
+    }
+    .contenidonavBar ul li a{
+      font-size: 100%;
+    }
+    nav ul li{
+      margin-top: 5%;
+      margin-bottom: 5%;
+    }
+    
+
+    
+    
+    nav ul{
+      justify-content: center;
+    }
+
+  }
+
+
+
+/*Contenido pagina main --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.contenido {
+  width: 100%;
+  height: 100vw;
+}
+
+
+p{
+    color: 	#b7b7b7;
+    font-size: 20;
+}
+
+#infoG {
+    margin: auto;
+    margin-left: 20px;
+}
+
+#tarjetas{
+  background-color: var(--color-pallete3);
+  margin: 0 auto;
+  width: 55%;
+}
+
+.card{
+  background-color: var(--color-pallete5);
+  height: 100vh;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.card *{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: var(--color-pallete1);
+}
+
+.card p, a{
+  font-size: 22px;
+}
+
+.card h1, h2, h4{
+  padding-top: 10%;
+  font-size: 40px;
+}
+
+.card p{
+  text-align: left;
+}
+
+.card a{
+  padding-top: 10%;
+  text-decoration: none;
+  color: var(--color-pallete1);
+  font-family: "Nexa-Heavy";
+}
+
+
+.card a:hover{
+  color: #5e9188;
+}
+
+#infoG h1{
+  font-family: 'tommy', 'Nexa-Heavy' , sans-serif;
+  font-size: 40px;
+  margin: auto;
+}
+
+#infoG p{
+  padding: 15px 0px 0px 20px;
+  font-family: sans-serif;
+  font-size: 25px;
+  margin: auto;
+}
+
+
+h1{
+  color: white ;
+  font-size: 24;
+}
+
+/*
+Fotos, conjunto de fotos e individuales --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+#PhotoApp {
+  background-color: #253342;
+}
+
+
+.photoIteration {
+  display: flex;
+  background-color: var(--color-palletePhoto1);
+  width: 100%;
+  flex-flow: row wrap;
+  margin-top: 2%;
+}
+
+.photoContainer {
+  display: flex;
+  flex-flow: row wrap;
+  position: relative;
+  margin-top: 2%;
+  height: 90%;
+  width: 30%;
+  margin-left: 1.4%;
+  margin-right: 1.4%;
+  background-color: var(--color-palletePhoto3);
+  flex-flow: row wrap;
+}
+
+#PhotoNavbar {
+  background-color: var(--color-palletePhoto1);
+}
+
+#navbarfoto {
+  background-color: var(--color-palletePhoto5);
+  display: flex;
+  font-size: medium;
+  font-family: "Teko", sans-serif;
+}
+
+#navbarfoto ul {
+  text-transform: uppercase;
+  text-align: center;
+  list-style: none;
+  padding-left: 0;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  display: flex;
+}
+
+#navbarfoto ul li {
+  padding-left: 2%;
+  padding-right: 2%;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+#PhotoNavcontainerlink li a:hover {
+  background-color: var(--color-pallete2);
+}
+
+#PhotoNavcontainerlink li a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+}
+
+#carrusel{
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 0;
+  height: 95%;
+}
+
+#imagenesCarrusel{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+}
+
+#imagenesCarrusel img{
+  width: 100px;
+  height: 200px;
+}
+
+
+#btn-izquierda, #btn-derecha{
+  position: absolute;
+  height: 10%;
+  width: 50px;
+  cursor: pointer;
+  font-size: 40px;
+  margin: 0,15px;
+  border: none;
+  background:transparent;
+  color: red;
+  z-index: 500;
+  outline: none;
+  transition: all 0.3s;
+}
+
+#btn-izquierda:hover, #btn-derecha:hover{
+  background: rgb(25, 177, 1);
+  transform: translateY(5px);
+}
+
+#btn-izquierda{
+  left: 0;
+}
+#btn-derecha{
+  right: 0;
+}
+
+.Photocontenedor {
+  width: 100%;
+  display: flex;
+}
+
+.PhotocontenidonavBar {
+  width: 70%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.PhotonombreNavBar {
+  background-color: var(--color-palletePhoto5);
+  width: 30%;
+}
+
+
+.photoPhoto {
+  background-color: var(--color-palletePhoto2);
+  width: 100%;
+  height: 80%;
+}
+
+.photoPhoto img {
+  width: 100%;
+  height:100%;
+}
+
+.photoInfo{
+  flex-flow: column wrap ;
+  max-height: 100%;
+}
+
+.photoLink {
+  position: relative;
+  display: block;
+}
+
+.photoOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo con opacidad */
+  opacity: 0;
+  transition: opacity 0.3s ease; /* Transición de opacidad */
+}
+
+.photoLink:hover .photoOverlay {
+  opacity: 1;
+  .photoInfo {
+    display: block;
+  }
+}
+
+.photoInfo {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white; /* Color del texto */
+  text-align: center;
+  padding: 10px;
+}
+
+
+
+/* ========================================lugares ===================================================================================== */
+.photoIteration2 {
+  display: flex;
+  background-color: var(--color-palletePhoto1);
+  width: 100%;
+  flex-flow: row wrap;
+  margin-top: 2%;
+}
+
+
+.photoContainer2 {
+  display: flex;
+  flex-flow: row wrap;
+  position: relative;
+  margin-top: 2%;
+  height: 90%;
+  width: 30%;
+  margin-left: 1.4%;
+  margin-right: 1.4%;
+  background-color: var(--color-palletePhoto3);
+  flex-flow: row wrap;
+}
+
+.photoPhoto2 {
+  background-color: var(--color-palletePhoto2);
+  width: 100%;
+  height: 100%;
+}
+
+.photoPhoto2 img {
+  width: 100%;
+  height:100%;
+}
+
+.photoLink2 {
+  position: relative;
+  display: block;
+}
+.photoLink2:hover .photoOverlay {
+  opacity: 1;
+  .photoInfo {
+    display: block;
+  }
+}
+
+
+
+/*
+APOD ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+#SectionImageOfTheDay{
+  background-color: var(--color-pallete5);
+}
+
+#image_of_the_day{
+    width: 100vw;
+    height: 90vh;
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
+}
+
+
+#image_day_text{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#image_day_text a{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: gainsboro;
+}
+
+#lado{
+    background-color: red;
+    color: red;
+    float: left;
+    width: 70%;
+}
+
+.imageDay{
+  position: relative;
+  height: 90vh;
+
+}
+
+#image_day_container{
+  height: 100vh;
+}
+
+
+.image_text {
+  display: flex;
+  position: absolute;
+  top: 80%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.7); /* Fondo semi-transparente para hacer el texto más legible */
+  padding: 10px; /* Ajusta el padding según tus preferencias */
+  background-color: var(--color-pallete4);
+  opacity: 50%;
+  
+
+}
+
+.textoEnIMG h1{
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  align-items: center;
+}
+
+
+.textoEnIMG a{
+  text-decoration: none;
+  color: aliceblue;
+}
+
+@media screen and (max-width:1000px) {
+  .image_text {
+    top: 80%;
+    left: 40%;
+}
+}
+
+footer{
+  background-color: var(--color-pallete4);
+  display: flex;
+  border-style: solid;
+  align-items: center;
+  border-color: var(--color-pallete3);
+}
+
+footer p{
+  align-items: center;
+  display: flex;
+}
+
+#contacto{
+  display: flex;
+  background-color: blue;
+}
+
+
+/* Fuentes ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+@font-face {
+  font-family: "Nexa-Heavy";
+  src: url("/static/fonts/Nexa-Heavy.ttf");
+}
+@font-face {
+  font-family: "tommy.otf";
+  src: url("/static/fonts/tommy.otf");
+}
+
+

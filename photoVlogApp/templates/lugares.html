@@ -1,0 +1,47 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div id="PhotoNavbar">
+            <nav id="navbarfoto">
+                <div class="Photocontenedor">
+                    <div class="PhotonombreNavBar">
+                        <h1>PhotoBlog</h1>
+                    </div>
+                    <div class="PhotocontenidonavBar">
+                        <ul id="PhotoNavcontainerlink">
+                            <li><a href="{% url 'imagenes' %}">Homwe</a></li>
+                            <li><a href="{% url 'thumbnails' %}">Lugares</a></li>
+                            <li><a href="{% url 'categorias' %}">Categorias</a></li>
+                            <li><a href="{% url 'imgcolores' %}">Colores</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="photoIteration2">
+        {% for publicacion in thumbs %}
+        <div class="photoContainer2">
+            <div class="photoPhoto2">
+                <a href="{% url 'lugar' publicacion.lugar %}" class="photoLink2">
+                    <img src="{% static 'imagenes/' %}{{ publicacion.imagen }}">
+                    <div class="photoOverlay">
+                        <div class="photoInfo">
+                            <h1>{{ publicacion.lugar }}</h1>
+                        </div>
+                    </div>
+                </a> <!-- Cierre de etiqueta <a> -->
+            </div> <!-- Cierre de etiqueta <div class="photoPhoto2"> -->
+        </div> <!-- Cierre de etiqueta <div class="photoContainer2"> -->
+        {% endfor %}
+    </div> <!-- Cierre de etiqueta <div class="photoIteration2"> -->
+</body>
+</html>

@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabriel Pineda</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="inicioNav">
+        <nav>
+            <div class="contenedor">
+                <div class="contenidonavBar">
+                    <ul>
+                        <li><a href="{% url 'inicio' %}">Inicio</a></li>
+                        <li><a href="#about">Acerca</a></li>
+                        <li><a href="#experiencia">Experiencia</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="nombreNavBar">
+                    <h1>Gabriel Pineda</h1>
+                </div>
+            </div>
+        </nav>
+            <div class="imageDay">
+                {% if imageOfTheDay %}
+                    <div id="image_day_contanier">
+                        <a href="{{ imageOfTheDay }}" target="_blank">
+                            <img src="{{ imageOfTheDay }}" alt="Imagen del día" id="image_of_the_day">
+                            <div class="image_text">
+                                <div class="textoEnIMG">
+                                    <h1>Imagen del día</h1>
+                                    <a href="https://apod.nasa.gov/apod/calendar/allyears.html" target="_blank">Fuentes: Nasa APOD API</a>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {% else %}
+                    <p>No hay imagen del día</p>
+                {% endif %}
+            </div>
+    </div>
+
+    <section id="tarjetas">
+        <div class="card" id="about">
+            <h1 class="CardTitle">Acerca</h1>
+            <article class="CardContent">
+                <p>
+                    Soy estudiante de ingenieria en software y sistemas computacionales desde 2021 en la <a href="https://www.lasallebajio.edu.mx/">Universidad la salle bajio.</a>
+                </p>
+                <p>Mi enfoque principal es el desarrollo web. Con Frameworks como <a href="https://www.djangoproject.com/">Django</a> y <a href="https://es.react.dev">React</a>
+                Utilizo html, css y javaScript, así como el uso de gestores de bases de datos: MySQL y PostgresSQL</p>
+                <p>Mi enfoque secundario es el desarrollo movil con Android Studio, ASP.NET, Flutter, XCode para MacOS</p>
+        </article>
+        </div>
+
+        <div class="card" id="experiencia">
+            <h1 class="CardTitle">Experiencia</h1>
+            <article class="CardContent"><p><a href="{% url 'imagenes' %}" target="_blank" >Galeria</a></p></article>
+        </div>
+
+        <div class="card" id="contacto">
+            <h1 class="CardTitle">Contacto</h1>
+            <img src="{% static 'imagenes/social.png' %}" alt="Descripción de la imagen" width="10%" heigh="10%" >
+            <p>Prueba</p>
+            
+            <img src="{% static 'imagenes/github.png' %}" alt="Descripción de la imagen" width="10%" heigh="10%">
+            
+
+        </div>
+
+
+    </section>
+   
+
+</body>
+
+    
+</html>

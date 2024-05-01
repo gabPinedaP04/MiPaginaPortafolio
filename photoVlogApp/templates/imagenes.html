@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fontawesome/css/all.min.css' %}">
+    <title>PhotoBlog</title>
+</head>
+<body>
+    <header>
+        <div id="PhotoNavbar">
+            <nav id="navbarfoto">
+                <div class="Photocontenedor">
+                    <div class="PhotonombreNavBar">
+                        <h1>PhotoBlog</h1>
+                    </div>
+                    <div class="PhotocontenidonavBar">
+                        <ul id="PhotoNavcontainerlink">
+                            <li><a href="{% url 'imagenes' %}">Home</a></li>
+                            <li><a href="{% url 'thumbnails' %}">Lugares</a></li>
+                            <li><a href="{% url 'categorias' %}">Categorías</a></li>
+                            <li><a href="{% url 'imgcolores' %}">Colores</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    {% block content %}
+    <article id="PhotoApp">
+        <div class="photoIteration">
+            {% for publicacion in publicaciones %}
+            <div class="photoContainer">
+                <div class="photoPhoto">
+                    {% if publicacion.imagen %}
+                    <a href="{% url 'imagen' publicacion.id %}" class="photoLink">
+                        <img src="{% static 'imagenes/' %}{{ publicacion.imagen }}">
+                        <div class="photoOverlay">
+                            <div class="photoInfo">
+                                <h1>{{ publicacion.titulo }}</h1>
+                                <p>{{ publicacion.descripcion }}</p>
+                                <span>{{ publicacion.fecha }}</span>
+                                <p>{{ publicacion.lugar }}</p>
+                                <!-- Se eliminó el siguiente línea, ya que no tiene sentido -->
+                                <!-- <p>"{% static 'imagenes/' %}{{ publicacion.imagen }}"</p> -->
+                            </div>
+                        </div>
+                    </a>
+                    {% endif %}
+                </div> <!-- cerrar Div de cada foto -->
+                <div class="photoInfo">
+                    <h1>{{ publicacion.titulo }}</h1>
+                    <p>{{ publicacion.descripcion }}</p>
+                    <span>{{ publicacion.fecha }}</span>
+                    <p>{{ publicacion.lugar }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </article>
+    {% endblock %}
+
+</body>
+</html>
